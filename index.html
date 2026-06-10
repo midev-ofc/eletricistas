@@ -1,0 +1,1710 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Yuri Eletricista - Soluções elétricas profissionais com segurança e qualidade. Instalações, manutenções e projetos elétricos em Santa Rita do Sapucaí e região.">
+    <meta name="keywords" content="eletricista, Yuri Eletricista, instalação elétrica, manutenção elétrica, Santa Rita do Sapucaí, Pouso Alegre, Itajubá, Cemig, projetos elétricos">
+    <meta name="author" content="Yuri Eletricista">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Yuri Eletricista - Soluções Elétricas Profissionais">
+    <meta property="og:description" content="Instalações, manutenções e projetos elétricos com segurança e qualidade.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <title>Yuri Eletricista | Soluções Elétricas Profissionais</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <style>
+        :root {
+            --bg-deep: #060b1f;
+            --bg-primary: #0a0f2c;
+            --bg-card: #0f1538;
+            --bg-card-hover: #141c45;
+            --yellow: #f0c040;
+            --yellow-glow: #f5d060;
+            --yellow-dark: #c89820;
+            --white: #ffffff;
+            --white-soft: #e8ecf8;
+            --gray: #94a3c0;
+            --gray-light: #b8c4dc;
+            --blue-mid: #1a2456;
+            --blue-light: #243070;
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --border-glow: rgba(240, 192, 64, 0.3);
+            --shadow-yellow: 0 0 30px rgba(240, 192, 64, 0.25);
+            --shadow-yellow-strong: 0 0 60px rgba(240, 192, 64, 0.4);
+            --radius-sm: 10px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: var(--yellow) var(--bg-deep);
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-deep);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--yellow);
+            border-radius: 10px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-deep);
+            color: var(--white-soft);
+            overflow-x: hidden;
+            cursor: none;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Custom Cursor */
+        .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--yellow);
+            pointer-events: none;
+            z-index: 99999;
+            mix-blend-mode: difference;
+            transition: transform 0.1s ease-out, width 0.25s ease, height 0.25s ease,
+                background 0.25s ease;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px rgba(240, 192, 64, 0.7), 0 0 40px rgba(240, 192, 64, 0.35);
+        }
+        .custom-cursor.hover-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(240, 192, 64, 0.7);
+            box-shadow: 0 0 35px rgba(240, 192, 64, 0.9), 0 0 60px rgba(240, 192, 64, 0.5);
+        }
+        .custom-cursor.hover-btn {
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.8), 0 0 70px rgba(240, 192, 64, 0.6);
+            mix-blend-mode: normal;
+        }
+
+        /* Loader */
+        .loader-overlay {
+            position: fixed;
+            inset: 0;
+            background: var(--bg-deep);
+            z-index: 100000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+        .loader-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .loader-icon {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+        .loader-ring {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: var(--yellow);
+            animation: loaderSpin 1s linear infinite;
+        }
+        .loader-ring:nth-child(2) {
+            inset: 8px;
+            animation-duration: 0.7s;
+            animation-direction: reverse;
+            border-top-color: var(--yellow-glow);
+        }
+        .loader-ring:nth-child(3) {
+            inset: 16px;
+            animation-duration: 1.3s;
+            border-top-color: rgba(240, 192, 64, 0.5);
+        }
+        .loader-bolt {
+            position: absolute;
+            inset: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 28px;
+            color: var(--yellow);
+            animation: loaderPulse 0.8s ease-in-out infinite;
+            text-shadow: 0 0 25px rgba(240, 192, 64, 0.8);
+        }
+        .loader-text {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.15em;
+            color: var(--yellow);
+            animation: loaderPulse 0.8s ease-in-out infinite;
+            text-transform: uppercase;
+        }
+
+        @keyframes loaderSpin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes loaderPulse {
+            0%,
+            100% {
+                opacity: 0.4;
+                transform: translate(-50%, -50%) scale(0.9);
+            }
+            50% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.15);
+            }
+        }
+
+        /* Lightning Flash Overlay */
+        .lightning-flash {
+            position: fixed;
+            inset: 0;
+            z-index: 99990;
+            pointer-events: none;
+            background: rgba(255, 255, 255, 0);
+            transition: background 0.08s ease-out;
+        }
+        .lightning-flash.active {
+            background: rgba(255, 255, 255, 0.12);
+            transition: background 0.04s ease-in;
+        }
+
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99980;
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            background: #25D366;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            cursor: none;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.45), 0 0 0 0 rgba(37, 211, 102, 0.5);
+            animation: whatsappPulse 2s infinite;
+            transition: transform var(--transition-bounce);
+            text-decoration: none;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.12);
+        }
+        @keyframes whatsappPulse {
+            0% {
+                box-shadow: 0 8px 30px rgba(37, 211, 102, 0.45), 0 0 0 0 rgba(37, 211, 102, 0.5);
+            }
+            70% {
+                box-shadow: 0 8px 30px rgba(37, 211, 102, 0.45), 0 0 0 22px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 8px 30px rgba(37, 211, 102, 0.45), 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: radial-gradient(ellipse at 50% 40%, #0f1a40 0%, #060b1f 55%, #030818 100%);
+        }
+        .hero-canvas {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .hero-particles {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .hero-logo {
+            display: inline-block;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        .hero-logo-text {
+            font-family: var(--font-heading);
+            font-weight: 900;
+            font-size: 3rem;
+            letter-spacing: 0.04em;
+            color: var(--white);
+            line-height: 1;
+        }
+        .hero-logo-text .yuri {
+            color: var(--white);
+        }
+        .hero-logo-text .bolt {
+            color: var(--yellow);
+            display: inline-block;
+            text-shadow: 0 0 30px rgba(240, 192, 64, 0.7);
+            animation: boltGlow 1.5s ease-in-out infinite;
+            margin: 0 2px;
+        }
+        .hero-logo-sub {
+            font-family: var(--font-body);
+            font-weight: 400;
+            font-size: 0.85rem;
+            letter-spacing: 0.35em;
+            color: var(--gray-light);
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+        @keyframes boltGlow {
+            0%,
+            100% {
+                text-shadow: 0 0 30px rgba(240, 192, 64, 0.7);
+            }
+            50% {
+                text-shadow: 0 0 55px rgba(240, 192, 64, 1), 0 0 90px rgba(240, 192, 64, 0.5);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: clamp(2rem, 5vw, 3.4rem);
+            color: var(--white);
+            max-width: 800px;
+            margin: 0 auto 16px;
+            line-height: 1.15;
+            animation: fadeInUp 0.8s 0.15s ease forwards;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+        .hero h1 .highlight {
+            color: var(--yellow);
+            position: relative;
+            display: inline-block;
+        }
+        .hero .subheadline {
+            font-family: var(--font-body);
+            font-weight: 400;
+            font-size: 1.15rem;
+            color: var(--gray);
+            max-width: 620px;
+            margin: 0 auto 36px;
+            line-height: 1.55;
+            animation: fadeInUp 0.8s 0.3s ease forwards;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeInUp 0.8s 0.45s ease forwards;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 32px;
+            border-radius: 50px;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            cursor: none;
+            transition: all var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            white-space: nowrap;
+        }
+        .btn-primary {
+            background: var(--yellow);
+            color: #1a1a1a;
+            box-shadow: var(--shadow-yellow);
+        }
+        .btn-primary:hover {
+            background: var(--yellow-glow);
+            box-shadow: var(--shadow-yellow-strong);
+            transform: translateY(-3px);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(6px);
+        }
+        .btn-outline:hover {
+            border-color: var(--yellow);
+            color: var(--yellow);
+            box-shadow: 0 0 25px rgba(240, 192, 64, 0.2);
+            transform: translateY(-3px);
+        }
+        .btn .btn-icon {
+            font-size: 1.2rem;
+        }
+        .btn-ripple {
+            position: relative;
+        }
+        .btn-ripple::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50px;
+            pointer-events: none;
+            opacity: 0;
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.5) 0%, transparent 70%);
+            transition: opacity 0.4s ease;
+        }
+        .btn-ripple:hover::after {
+            opacity: 0.35;
+        }
+
+        /* ========== SECTION STYLES ========== */
+        section {
+            position: relative;
+            padding: 100px 0;
+            overflow: hidden;
+        }
+        .section-label {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.8rem;
+            letter-spacing: 0.25em;
+            color: var(--yellow);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .section-title {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            color: var(--white);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .section-subtitle {
+            font-family: var(--font-body);
+            font-weight: 400;
+            font-size: 1.05rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        /* ========== SERVICES ========== */
+        .services {
+            background: var(--bg-primary);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: 30px 26px;
+            border: 1px solid var(--border-subtle);
+            transition: all var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            cursor: default;
+            group: true;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: var(--radius-md);
+            padding: 1px;
+            background: linear-gradient(135deg, transparent 60%, rgba(240, 192, 64, 0.25) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity var(--transition-smooth);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .service-card:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--border-glow);
+        }
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        .service-card-icon {
+            font-size: 2.2rem;
+            color: var(--yellow);
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+            transition: transform var(--transition-bounce);
+        }
+        .service-card:hover .service-card-icon {
+            transform: scale(1.15);
+            text-shadow: 0 0 30px rgba(240, 192, 64, 0.6);
+        }
+        .service-card h3 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--white);
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            position: relative;
+            z-index: 1;
+            line-height: 1.5;
+        }
+
+        /* ========== DIFFERENTIALS ========== */
+        .differentials {
+            background: var(--bg-deep);
+            background-image: radial-gradient(ellipse at 50% 0%, rgba(240, 192, 64, 0.04) 0%, transparent 60%);
+        }
+        .diff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .diff-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: 24px 22px;
+            border: 1px solid var(--border-subtle);
+            transition: all var(--transition-smooth);
+        }
+        .diff-item:hover {
+            border-color: var(--border-glow);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transform: translateX(4px);
+        }
+        .diff-icon {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(240, 192, 64, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--yellow);
+            transition: all var(--transition-smooth);
+        }
+        .diff-item:hover .diff-icon {
+            background: rgba(240, 192, 64, 0.2);
+            box-shadow: 0 0 20px rgba(240, 192, 64, 0.25);
+        }
+        .diff-text h3 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+        .diff-text p {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        /* ========== ABOUT ========== */
+        .about {
+            background: var(--bg-primary);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .about-image-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .about-image-placeholder {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: var(--blue-mid);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            color: var(--gray-light);
+            position: relative;
+            z-index: 1;
+            border: 3px solid var(--border-subtle);
+        }
+        .about-image-frame {
+            position: absolute;
+            width: 310px;
+            height: 310px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            border-top-color: var(--yellow);
+            border-right-color: var(--yellow);
+            animation: frameRotate 6s linear infinite;
+            box-shadow: 0 0 40px rgba(240, 192, 64, 0.3);
+            z-index: 0;
+        }
+        @keyframes frameRotate {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .about-image-frame:nth-child(3) {
+            width: 330px;
+            height: 330px;
+            animation-direction: reverse;
+            animation-duration: 8s;
+            border-top-color: transparent;
+            border-left-color: rgba(240, 192, 64, 0.5);
+            border-bottom-color: rgba(240, 192, 64, 0.5);
+            border-right-color: transparent;
+            box-shadow: 0 0 25px rgba(240, 192, 64, 0.2);
+        }
+        .about-text h2 {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 2.2rem;
+            color: var(--white);
+            margin-bottom: 18px;
+            line-height: 1.2;
+        }
+        .about-text p {
+            color: var(--gray);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+        .about-text .highlight-text {
+            color: var(--yellow);
+            font-weight: 600;
+        }
+
+        /* ========== NUMBERS ========== */
+        .numbers {
+            background: var(--bg-deep);
+            background-image: radial-gradient(ellipse at 50% 50%, rgba(240, 192, 64, 0.03) 0%, transparent 70%);
+        }
+        .numbers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 24px;
+            text-align: center;
+        }
+        .number-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: 30px 20px;
+            border: 1px solid var(--border-subtle);
+            transition: all var(--transition-smooth);
+        }
+        .number-card:hover {
+            border-color: var(--border-glow);
+            box-shadow: var(--shadow-yellow);
+            transform: translateY(-4px);
+        }
+        .number-value {
+            font-family: var(--font-heading);
+            font-weight: 900;
+            font-size: 3rem;
+            color: var(--yellow);
+            line-height: 1;
+            margin-bottom: 6px;
+            text-shadow: 0 0 20px rgba(240, 192, 64, 0.4);
+        }
+        .number-label {
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--gray-light);
+        }
+
+        /* ========== TESTIMONIALS ========== */
+        .testimonials {
+            background: var(--bg-primary);
+        }
+        .testimonial-carousel {
+            position: relative;
+            overflow: hidden;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .testimonial-card {
+            flex: 0 0 100%;
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 36px 30px;
+            border: 1px solid var(--border-subtle);
+            text-align: center;
+        }
+        .testimonial-stars {
+            color: var(--yellow);
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            margin-bottom: 16px;
+        }
+        .testimonial-text {
+            font-style: italic;
+            color: var(--gray-light);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+        .testimonial-author {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--white);
+            font-size: 1rem;
+        }
+        .testimonial-role {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 24px;
+        }
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--blue-mid);
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-smooth);
+        }
+        .carousel-dot.active {
+            background: var(--yellow);
+            box-shadow: 0 0 12px rgba(240, 192, 64, 0.5);
+            width: 28px;
+            border-radius: 10px;
+        }
+
+        /* ========== SERVICE AREA ========== */
+        .service-area {
+            background: var(--bg-deep);
+        }
+        .area-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .area-map-placeholder {
+            aspect-ratio: 4/3;
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .area-map-placeholder .map-dot {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--yellow);
+            box-shadow: 0 0 15px rgba(240, 192, 64, 0.7);
+            animation: mapPulse 2s ease-in-out infinite;
+        }
+        @keyframes mapPulse {
+            0%,
+            100% {
+                box-shadow: 0 0 15px rgba(240, 192, 64, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(240, 192, 64, 1), 0 0 50px rgba(240, 192, 64, 0.4);
+            }
+        }
+        .area-list {
+            list-style: none;
+            padding: 0;
+        }
+        .area-list li {
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border-subtle);
+            font-family: var(--font-body);
+            font-weight: 500;
+            color: var(--white-soft);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            transition: color var(--transition-fast);
+        }
+        .area-list li:hover {
+            color: var(--yellow);
+        }
+        .area-list li i {
+            color: var(--yellow);
+            font-size: 1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* ========== CTA ========== */
+        .cta-final {
+            background: var(--bg-primary);
+            background-image: radial-gradient(ellipse at 50% 50%, rgba(240, 192, 64, 0.06) 0%, transparent 65%);
+            text-align: center;
+            padding: 120px 0;
+        }
+        .cta-final h2 {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            color: var(--white);
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        .cta-final p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+        }
+        .btn-giant {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            padding: 20px 48px;
+            border-radius: 60px;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: 0.03em;
+            background: #25D366;
+            color: #fff;
+            text-decoration: none;
+            box-shadow: 0 10px 40px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.4);
+            animation: ctaPulse 2.2s infinite;
+            transition: all var(--transition-bounce);
+            cursor: none;
+        }
+        .btn-giant:hover {
+            transform: scale(1.06);
+            box-shadow: 0 15px 50px rgba(37, 211, 102, 0.55), 0 0 70px rgba(37, 211, 102, 0.25);
+        }
+        @keyframes ctaPulse {
+            0% {
+                box-shadow: 0 10px 40px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.4);
+            }
+            70% {
+                box-shadow: 0 10px 40px rgba(37, 211, 102, 0.4), 0 0 0 30px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 10px 40px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background: #030818;
+            padding: 50px 0 30px;
+            border-top: 1px solid var(--border-subtle);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+        .footer-logo .bolt {
+            color: var(--yellow);
+        }
+        .footer p,
+        .footer a {
+            color: var(--gray);
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: color var(--transition-fast);
+            display: block;
+            margin-bottom: 6px;
+        }
+        .footer a:hover {
+            color: var(--yellow);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-subtle);
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .about-image-wrapper {
+                order: -1;
+            }
+            .about-image-placeholder {
+                width: 200px;
+                height: 200px;
+                font-size: 4rem;
+            }
+            .about-image-frame {
+                width: 225px;
+                height: 225px;
+            }
+            .about-image-frame:nth-child(3) {
+                width: 240px;
+                height: 240px;
+            }
+            .area-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+            .hero-logo-text {
+                font-size: 2.2rem;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .hero .subheadline {
+                font-size: 0.95rem;
+            }
+            .btn {
+                padding: 13px 24px;
+                font-size: 0.9rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .diff-grid {
+                grid-template-columns: 1fr;
+            }
+            .numbers-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                bottom: 20px;
+                right: 20px;
+            }
+            .custom-cursor {
+                display: none;
+            }
+            body {
+                cursor: auto;
+            }
+        }
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .numbers-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .btn-giant {
+                padding: 16px 30px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loader -->
+    <div class="loader-overlay" id="loader">
+        <div class="loader-icon">
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <span class="loader-bolt">⚡</span>
+        </div>
+        <span class="loader-text">Carregando...</span>
+    </div>
+
+    <!-- Lightning Flash -->
+    <div class="lightning-flash" id="lightningFlash"></div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="customCursor"></div>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/5535999999999?text=Ol%C3%A1%20Yuri!%20Preciso%20de%20um%20or%C3%A7amento." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ============ HERO ============ -->
+    <header class="hero" id="hero">
+        <canvas class="hero-canvas" id="heroCanvas"></canvas>
+        <div class="hero-content">
+            <div class="hero-logo">
+                <div class="hero-logo-text">
+                    <span class="yuri">YURI</span> <span class="bolt">⚡</span> <span class="yuri">ELETRICISTA</span>
+                </div>
+                <div class="hero-logo-sub">Energia com Segurança</div>
+            </div>
+            <h1>Soluções Elétricas <span class="highlight">Profissionais</span> com Segurança e Qualidade</h1>
+            <p class="subheadline">Instalações, manutenções, reparos e projetos elétricos para residências, empresas e indústrias.</p>
+            <div class="hero-buttons">
+                <a href="#cta" class="btn btn-primary btn-ripple">
+                    <i class="fa-solid fa-bolt btn-icon"></i> Solicitar Orçamento
+                </a>
+                <a href="https://wa.me/5535999999999?text=Ol%C3%A1%20Yuri!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es." class="btn btn-outline btn-ripple" target="_blank" rel="noopener">
+                    <i class="fab fa-whatsapp btn-icon"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="services" id="servicos">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Nossos Serviços</span>
+                <h2 class="section-title">Soluções Completas em Elétrica</h2>
+                <p class="section-subtitle">Atendimento profissional com equipamentos modernos e total segurança.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="service-card-icon">⚡</div>
+                    <h3>Instalações Elétricas</h3>
+                    <p>Instalação completa de sistemas elétricos residenciais e comerciais com padrão de qualidade.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="80">
+                    <div class="service-card-icon">🔧</div>
+                    <h3>Manutenção Preventiva</h3>
+                    <p>Inspeções periódicas para evitar falhas e garantir a segurança da sua instalação elétrica.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="160">
+                    <div class="service-card-icon">🛠️</div>
+                    <h3>Manutenção Corretiva</h3>
+                    <p>Diagnóstico e reparo rápido de problemas elétricos, com atendimento ágil e eficiente.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="240">
+                    <div class="service-card-icon">🔌</div>
+                    <h3>Troca de Disjuntores</h3>
+                    <p>Substituição e dimensionamento correto de disjuntores para proteção do seu circuito.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="service-card-icon">📋</div>
+                    <h3>Padrão Cemig</h3>
+                    <p>Adequação e regularização do padrão de entrada conforme normas da Cemig.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="80">
+                    <div class="service-card-icon">📐</div>
+                    <h3>Projetos Elétricos</h3>
+                    <p>Elaboração de projetos elétricos personalizados para residências, comércios e indústrias.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="160">
+                    <div class="service-card-icon">💡</div>
+                    <h3>Iluminação Residencial</h3>
+                    <p>Projetos de iluminação, instalação de lustres, spots, LED e automação residencial.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="240">
+                    <div class="service-card-icon">🚨</div>
+                    <h3>Atendimento Emergencial</h3>
+                    <p>Plantão 24h para emergências elétricas. Resposta rápida quando você mais precisa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ DIFFERENTIALS ============ -->
+    <section class="differentials" id="diferenciais">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Por que nos escolher</span>
+                <h2 class="section-title">Diferenciais que Garantem Qualidade</h2>
+                <p class="section-subtitle">Compromisso com a excelência em cada serviço prestado.</p>
+            </div>
+            <div class="diff-grid">
+                <div class="diff-item" data-aos="fade-right" data-aos-delay="0">
+                    <div class="diff-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <div class="diff-text">
+                        <h3>Atendimento Rápido</h3>
+                        <p>Resposta imediata e deslocamento ágil para sua residência ou empresa.</p>
+                    </div>
+                </div>
+                <div class="diff-item" data-aos="fade-left" data-aos-delay="80">
+                    <div class="diff-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="diff-text">
+                        <h3>Segurança Garantida</h3>
+                        <p>Todos os serviços seguem rigorosas normas de segurança elétrica.</p>
+                    </div>
+                </div>
+                <div class="diff-item" data-aos="fade-right" data-aos-delay="160">
+                    <div class="diff-icon"><i class="fa-solid fa-certificate"></i></div>
+                    <div class="diff-text">
+                        <h3>Profissional Qualificado</h3>
+                        <p>Formação técnica e constante atualização em novas tecnologias elétricas.</p>
+                    </div>
+                </div>
+                <div class="diff-item" data-aos="fade-left" data-aos-delay="240">
+                    <div class="diff-icon"><i class="fa-solid fa-microchip"></i></div>
+                    <div class="diff-text">
+                        <h3>Equipamentos Modernos</h3>
+                        <p>Utilização de ferramentas e equipamentos de última geração.</p>
+                    </div>
+                </div>
+                <div class="diff-item" data-aos="fade-right" data-aos-delay="0">
+                    <div class="diff-icon"><i class="fa-solid fa-thumbs-up"></i></div>
+                    <div class="diff-text">
+                        <h3>Garantia de Serviço</h3>
+                        <p>Todos os serviços executados possuem garantia para sua tranquilidade.</p>
+                    </div>
+                </div>
+                <div class="diff-item" data-aos="fade-left" data-aos-delay="80">
+                    <div class="diff-icon"><i class="fa-solid fa-file-invoice"></i></div>
+                    <div class="diff-text">
+                        <h3>Orçamento Sem Compromisso</h3>
+                        <p>Avaliação gratuita e orçamento transparente antes de qualquer serviço.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="about" id="sobre">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image-wrapper" data-aos="zoom-in" data-aos-duration="800">
+                    <div class="about-image-frame"></div>
+                    <div class="about-image-frame"></div>
+                    <div class="about-image-placeholder">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                </div>
+                <div class="about-text" data-aos="fade-left" data-aos-delay="200">
+                    <span class="section-label">Quem é Yuri?</span>
+                    <h2>Profissional Dedicado à <span class="highlight-text">Excelência Elétrica</span></h2>
+                    <p>Com mais de <span class="highlight-text">10 anos de experiência</span> no setor elétrico, Yuri construiu uma reputação sólida baseada na confiança, qualidade e compromisso com cada cliente.</p>
+                    <p>Especializado em <span class="highlight-text">instalações residenciais, comerciais e industriais</span>, utiliza equipamentos de ponta e segue rigorosamente as normas técnicas para garantir a máxima segurança em todos os projetos.</p>
+                    <p>Seu diferencial está no <span class="highlight-text">atendimento personalizado</span>, na transparência dos orçamentos e na agilidade para resolver problemas elétricos, sempre priorizando a satisfação total do cliente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ NUMBERS ============ -->
+    <section class="numbers" id="numeros">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Números</span>
+                <h2 class="section-title">Resultados que Falam por Si</h2>
+            </div>
+            <div class="numbers-grid">
+                <div class="number-card" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="number-value" data-target="500">0</div>
+                    <div class="number-label">Serviços Realizados</div>
+                </div>
+                <div class="number-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="number-value" data-target="100">0</div>
+                    <div class="number-label">% Clientes Satisfeitos</div>
+                </div>
+                <div class="number-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="number-value" data-target="24">0</div>
+                    <div class="number-label">Horas Atendimento Emergencial</div>
+                </div>
+                <div class="number-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="number-value" data-target="10">0</div>
+                    <div class="number-label">+ Anos de Experiência</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="testimonials" id="depoimentos">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Depoimentos</span>
+                <h2 class="section-title">O Que Nossos Clientes Dizem</h2>
+            </div>
+            <div class="testimonial-carousel" data-aos="fade-up" data-aos-delay="150">
+                <div class="testimonial-track" id="testimonialTrack">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Yuri resolveu um problema elétrico complicado na minha casa com rapidez e profissionalismo. Preço justo e serviço impecável. Recomendo de olhos fechados!"</p>
+                        <div class="testimonial-author">Maria Silva</div>
+                        <div class="testimonial-role">Cliente Residencial - Santa Rita do Sapucaí</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Contratei para fazer toda a instalação elétrica da minha loja. Trabalho limpo, organizado e dentro do prazo. Profissional nota 10!"</p>
+                        <div class="testimonial-author">Carlos Oliveira</div>
+                        <div class="testimonial-role">Comerciante - Pouso Alegre</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Atendimento emergencial às 2h da manhã! Yuri foi super solícito e resolveu o curtocircuito rapidamente. Salvou minha noite!"</p>
+                        <div class="testimonial-author">Ana Paula Costa</div>
+                        <div class="testimonial-role">Cliente Residencial - Itajubá</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Projeto elétrico da minha casa ficou perfeito. Yuri é detalhista e explica tudo com clareza. Muito satisfeito com o resultado."</p>
+                        <div class="testimonial-author">Roberto Almeida</div>
+                        <div class="testimonial-role">Engenheiro - Cachoeira de Minas</div>
+                    </div>
+                </div>
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SERVICE AREA ============ -->
+    <section class="service-area" id="area-atendimento">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Área de Atendimento</span>
+                <h2 class="section-title">Atendemos Toda a Região</h2>
+                <p class="section-subtitle">Cobertura completa no Sul de Minas Gerais.</p>
+            </div>
+            <div class="area-grid">
+                <div class="area-map-placeholder" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fa-solid fa-map-location-dot" style="font-size:4rem;color:var(--yellow);opacity:0.7;"></i>
+                    <div class="map-dot" style="top:38%;left:45%;"></div>
+                    <div class="map-dot" style="top:42%;left:52%;animation-delay:0.5s;"></div>
+                    <div class="map-dot" style="top:35%;left:58%;animation-delay:1s;"></div>
+                    <div class="map-dot" style="top:48%;left:40%;animation-delay:1.5s;"></div>
+                    <div class="map-dot" style="top:30%;left:50%;animation-delay:0.3s;"></div>
+                </div>
+                <div data-aos="fade-left" data-aos-delay="200">
+                    <ul class="area-list">
+                        <li><i class="fa-solid fa-map-pin"></i> Santa Rita do Sapucaí</li>
+                        <li><i class="fa-solid fa-map-pin"></i> Pouso Alegre</li>
+                        <li><i class="fa-solid fa-map-pin"></i> Itajubá</li>
+                        <li><i class="fa-solid fa-map-pin"></i> Cachoeira de Minas</li>
+                        <li><i class="fa-solid fa-map-pin"></i> Região do Sul de Minas</li>
+                        <li><i class="fa-solid fa-map-pin"></i> E cidades vizinhas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CTA FINAL ============ -->
+    <section class="cta-final" id="cta">
+        <div class="container" data-aos="zoom-in" data-aos-duration="600">
+            <span class="section-label">Atendimento Imediato</span>
+            <h2>Precisa de um eletricista agora?</h2>
+            <p>Não espere mais! Solicite seu orçamento gratuito e sem compromisso.</p>
+            <a href="https://wa.me/5535999999999?text=Ol%C3%A1%20Yuri!%20Preciso%20de%20um%20eletricista%20agora!" class="btn-giant" target="_blank" rel="noopener">
+                <i class="fab fa-whatsapp" style="font-size:1.6rem;"></i> Chamar no WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">YURI <span class="bolt">⚡</span> ELETRICISTA</div>
+                    <p style="margin-top:8px;">Soluções elétricas profissionais com segurança e qualidade desde 2014.</p>
+                </div>
+                <div>
+                    <p style="color:var(--white);font-weight:600;margin-bottom:12px;">Contato</p>
+                    <p><i class="fa-solid fa-phone" style="color:var(--yellow);margin-right:8px;"></i> (35) 9 9999-9999</p>
+                    <a href="https://wa.me/5535999999999"><i class="fab fa-whatsapp" style="color:#25D366;margin-right:8px;"></i> WhatsApp</a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener"><i class="fab fa-instagram" style="color:#E4405F;margin-right:8px;"></i> Instagram</a>
+                </div>
+                <div>
+                    <p style="color:var(--white);font-weight:600;margin-bottom:12px;">Links Rápidos</p>
+                    <a href="#servicos">Serviços</a>
+                    <a href="#diferenciais">Diferenciais</a>
+                    <a href="#sobre">Sobre</a>
+                    <a href="#depoimentos">Depoimentos</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Yuri Eletricista. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">
+    </script>
+
+    <script>
+        (function() {
+            // ============ LOADER ============
+            const loader = document.getElementById('loader');
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    loader.classList.add('hidden');
+                }, 1200);
+            });
+            // Fallback
+            setTimeout(() => {
+                if (!loader.classList.contains('hidden')) {
+                    loader.classList.add('hidden');
+                }
+            }, 3000);
+
+            // ============ CUSTOM CURSOR ============
+            const cursor = document.getElementById('customCursor');
+            const isMobile = /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent) || window.innerWidth <
+                768;
+
+            if (!isMobile) {
+                let mouseX = 0,
+                    mouseY = 0;
+                let cursorX = 0,
+                    cursorY = 0;
+
+                document.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                });
+
+                function updateCursor() {
+                    cursorX += (mouseX - cursorX) * 0.2;
+                    cursorY += (mouseY - cursorY) * 0.2;
+                    cursor.style.left = cursorX + 'px';
+                    cursor.style.top = cursorY + 'px';
+                    requestAnimationFrame(updateCursor);
+                }
+                updateCursor();
+
+                // Hover detection for links and buttons
+                const hoverTargets = document.querySelectorAll(
+                    'a, button, .btn, .service-card, .diff-item, .number-card, .carousel-dot, .whatsapp-float');
+                hoverTargets.forEach(el => {
+                    el.addEventListener('mouseenter', () => {
+                        if (el.classList.contains('btn') || el.classList.contains('btn-giant') ||
+                            el.classList.contains('whatsapp-float')) {
+                            cursor.classList.add('hover-btn');
+                        } else {
+                            cursor.classList.add('hover-link');
+                        }
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        cursor.classList.remove('hover-link', 'hover-btn');
+                    });
+                });
+            } else {
+                cursor.style.display = 'none';
+            }
+
+            // ============ AOS INIT ============
+            AOS.init({
+                duration: 700,
+                easing: 'ease-out-cubic',
+                once: true,
+                offset: 80,
+                disable: 'mobile'
+            });
+
+            // ============ GSAP SCROLLTRIGGER ============
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Subtle parallax on hero
+            gsap.to('.hero-content', {
+                y: -40,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '.hero',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: true,
+                },
+            });
+
+            // ============ CANVAS CIRCUIT ANIMATION ============
+            const canvas = document.getElementById('heroCanvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            let circuitLines = [];
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', () => {
+                resizeCanvas();
+                initCircuit();
+            });
+
+            function initCircuit() {
+                particles = [];
+                circuitLines = [];
+                const w = canvas.width;
+                const h = canvas.height;
+                const lineCount = Math.floor(w / 120);
+
+                // Horizontal circuit lines
+                for (let i = 0; i < lineCount; i++) {
+                    const y = h * 0.2 + (Math.random() * h * 0.6);
+                    const x1 = Math.random() * w * 0.3;
+                    const x2 = w * 0.7 + Math.random() * w * 0.3;
+                    circuitLines.push({
+                        x1,
+                        y1: y,
+                        x2,
+                        y2: y,
+                        midX: (x1 + x2) / 2 + (Math.random() - 0.5) * 200,
+                        midY: y + (Math.random() - 0.5) * 80,
+                        opacity: 0.08 + Math.random() * 0.12,
+                    });
+                    // Spawn particles on this line
+                    const particleCount = Math.floor(Math.random() * 3) + 1;
+                    for (let j = 0; j < particleCount; j++) {
+                        particles.push({
+                            lineIndex: circuitLines.length - 1,
+                            progress: Math.random(),
+                            speed: 0.001 + Math.random() * 0.004,
+                            size: 1.5 + Math.random() * 2.5,
+                            glow: 0.5 + Math.random() * 0.5,
+                        });
+                    }
+                }
+
+                // Vertical circuit lines
+                const vLineCount = Math.floor(h / 150);
+                for (let i = 0; i < vLineCount; i++) {
+                    const x = w * 0.15 + Math.random() * w * 0.7;
+                    const y1 = Math.random() * h * 0.2;
+                    const y2 = h * 0.8 + Math.random() * h * 0.2;
+                    circuitLines.push({
+                        x1: x,
+                        y1,
+                        x2: x,
+                        y2,
+                        midX: x + (Math.random() - 0.5) * 100,
+                        midY: (y1 + y2) / 2,
+                        opacity: 0.06 + Math.random() * 0.1,
+                    });
+                    const particleCount = Math.floor(Math.random() * 2) + 1;
+                    for (let j = 0; j < particleCount; j++) {
+                        particles.push({
+                            lineIndex: circuitLines.length - 1,
+                            progress: Math.random(),
+                            speed: 0.001 + Math.random() * 0.003,
+                            size: 1.5 + Math.random() * 2,
+                            glow: 0.4 + Math.random() * 0.5,
+                        });
+                    }
+                }
+            }
+            initCircuit();
+
+            function getPointOnLine(line, t) {
+                // Quadratic bezier
+                const cx = line.midX !== undefined ? line.midX : (line.x1 + line.x2) / 2;
+                const cy = line.midY !== undefined ? line.midY : (line.y1 + line.y2) / 2;
+                const invT = 1 - t;
+                const x = invT * invT * line.x1 + 2 * invT * t * cx + t * t * line.x2;
+                const y = invT * invT * line.y1 + 2 * invT * t * cy + t * t * line.y2;
+                return { x, y };
+            }
+
+            function drawCircuit() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                // Draw lines
+                circuitLines.forEach(line => {
+                    ctx.beginPath();
+                    ctx.moveTo(line.x1, line.y1);
+                    if (line.midX !== undefined && line.midY !== undefined) {
+                        ctx.quadraticCurveTo(line.midX, line.midY, line.x2, line.y2);
+                    } else {
+                        ctx.lineTo(line.x2, line.y2);
+                    }
+                    ctx.strokeStyle = `rgba(240,192,64,${line.opacity})`;
+                    ctx.lineWidth = 0.6;
+                    ctx.stroke();
+                });
+
+                // Draw particles
+                particles.forEach(p => {
+                    const line = circuitLines[p.lineIndex];
+                    if (!line) return;
+                    const pos = getPointOnLine(line, p.progress);
+                    // Glow
+                    const gradient = ctx.createRadialGradient(pos.x, pos.y, 0, pos.x, pos.y, p.size * 4);
+                    gradient.addColorStop(0, `rgba(245,208,96,${p.glow})`);
+                    gradient.addColorStop(0.4, `rgba(240,192,64,${p.glow * 0.6})`);
+                    gradient.addColorStop(1, 'rgba(240,192,64,0)');
+                    ctx.beginPath();
+                    ctx.arc(pos.x, pos.y, p.size * 4, 0, Math.PI * 2);
+                    ctx.fillStyle = gradient;
+                    ctx.fill();
+                    // Core
+                    ctx.beginPath();
+                    ctx.arc(pos.x, pos.y, p.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255,220,120,${p.glow + 0.2})`;
+                    ctx.fill();
+
+                    // Update
+                    p.progress += p.speed;
+                    if (p.progress > 1) p.progress = 0;
+                    if (p.progress < 0) p.progress = 1;
+                });
+            }
+
+            function animateCanvas() {
+                drawCircuit();
+                requestAnimationFrame(animateCanvas);
+            }
+            animateCanvas();
+            window.addEventListener('resize', initCircuit);
+
+            // ============ LIGHTNING FLASH ============
+            const lightningFlash = document.getElementById('lightningFlash');
+
+            function triggerLightning() {
+                lightningFlash.classList.add('active');
+                setTimeout(() => {
+                    lightningFlash.classList.remove('active');
+                }, 80);
+                // Sometimes do a double flash
+                if (Math.random() < 0.4) {
+                    setTimeout(() => {
+                        lightningFlash.classList.add('active');
+                        setTimeout(() => {
+                            lightningFlash.classList.remove('active');
+                        }, 50);
+                    }, 150);
+                }
+                // Schedule next lightning
+                const nextDelay = 6000 + Math.random() * 20000;
+                setTimeout(triggerLightning, nextDelay);
+            }
+            setTimeout(triggerLightning, 4000 + Math.random() * 8000);
+
+            // ============ COUNTER ANIMATION ============
+            const numberCards = document.querySelectorAll('.number-value');
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const target = parseInt(el.getAttribute('data-target'));
+                        const suffix = target === 100 ? '%' : target === 24 ? 'h' : '+';
+                        const isPercent = target === 100;
+                        const isHours = target === 24;
+                        const duration = 2000;
+                        const startTime = performance.now();
+
+                        function updateCounter(timestamp) {
+                            const elapsed = timestamp - startTime;
+                            const progress = Math.min(elapsed / duration, 1);
+                            const eased = 1 - Math.pow(1 - progress, 3);
+                            const current = Math.floor(eased * target);
+                            if (isPercent) {
+                                el.textContent = current + '%';
+                            } else if (isHours) {
+                                el.textContent = current + 'h';
+                            } else if (target >= 500) {
+                                el.textContent = current + '+';
+                            } else {
+                                el.textContent = current + '+';
+                            }
+                            if (progress < 1) {
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                if (isPercent) el.textContent = target + '%';
+                                else if (isHours) el.textContent = target + 'h';
+                                else el.textContent = target + '+';
+                            }
+                        }
+                        requestAnimationFrame(updateCounter);
+                        counterObserver.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            numberCards.forEach(card => counterObserver.observe(card));
+
+            // ============ TESTIMONIAL CAROUSEL ============
+            const track = document.getElementById('testimonialTrack');
+            const dotsContainer = document.getElementById('carouselDots');
+            const cards = track.querySelectorAll('.testimonial-card');
+            const totalCards = cards.length;
+            let currentSlide = 0;
+            let autoSlideInterval;
+
+            // Create dots
+            for (let i = 0; i < totalCards; i++) {
+                const dot = document.createElement('button');
+                dot.classList.add('carousel-dot');
+                if (i === 0) dot.classList.add('active');
+                dot.setAttribute('aria-label', `Depoimento ${i + 1}`);
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            }
+            const dots = dotsContainer.querySelectorAll('.carousel-dot');
+
+            function goToSlide(index) {
+                currentSlide = index;
+                track.style.transform = `translateX(-${currentSlide * 100}%)`;
+                dots.forEach((d, i) => d.classList.toggle('active', i === index));
+                resetAutoSlide();
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalCards;
+                goToSlide(currentSlide);
+            }
+
+            function resetAutoSlide() {
+                clearInterval(autoSlideInterval);
+                autoSlideInterval = setInterval(nextSlide, 4500);
+            }
+            autoSlideInterval = setInterval(nextSlide, 4500);
+
+            // Pause on hover
+            const carousel = document.querySelector('.testimonial-carousel');
+            carousel.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+            carousel.addEventListener('mouseleave', resetAutoSlide);
+
+            // ============ SMOOTH SCROLL FOR ANCHOR LINKS ============
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            // ============ MOBILE TOUCH FIX ============
+            if (isMobile) {
+                document.querySelectorAll('a, button, .btn, .btn-giant').forEach(el => {
+                    el.style.cursor = 'pointer';
+                });
+                document.body.style.cursor = 'auto';
+            }
+
+            console.log('⚡ Yuri Eletricista - Landing Page Carregada com Sucesso!');
+            console.log('💡 Pronto para converter visitantes em clientes.');
+        })();
+    </script>
+</body>
+</html>
